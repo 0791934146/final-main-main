@@ -1,0 +1,112 @@
+<div class="container" id="container">
+  <div class="form-container sign-up-container">
+    <form [formGroup]="formGroup">
+      <h1>Create Account</h1>
+      <mat-form-field
+        appearance="outline"
+        class="field-width"
+        style="background: none"
+      >
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="name"
+          placeholder="Your Name"
+        />
+        <mat-error *ngIf="name.invalid">You must enter a value</mat-error>
+      </mat-form-field>
+      <mat-form-field
+        appearance="outline"
+        class="field-width"
+        style="background: none"
+      >
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          formControlName="email"
+          placeholder="Email"
+        />
+        <mat-error *ngIf="email.invalid">{{
+          getEmailErrorMessage()
+        }}</mat-error>
+      </mat-form-field>
+      <mat-form-field
+        appearance="outline"
+        class="field-width"
+        style="background: none"
+      >
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          placeholder="Password"
+          formControlName="password"
+          type="password"
+        />
+        <mat-error *ngIf="password.invalid">{{
+          getPasswordErrorMessage()
+        }}</mat-error>
+      </mat-form-field>
+      <button class="btn btn-outline-dark" (click)="onSignupClicked()">
+        Signup
+      </button>
+    </form>
+  </div>
+  <div class="form-container sign-in-container">
+    <form [formGroup]="formGroupLogin">
+      <h1>Sign in</h1>
+
+      <mat-form-field
+        style="background: none"
+        appearance="outline"
+        class="field-width"
+      >
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          formControlName="email"
+          placeholder="Email"
+        />
+        <mat-error *ngIf="email.invalid">{{
+          getEmailErrorMessage()
+        }}</mat-error>
+      </mat-form-field>
+      <mat-form-field
+        style="background: none"
+        appearance="outline"
+        class="field-width"
+      >
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          placeholder="Password"
+          formControlName="password"
+          type="password"
+        />
+        <mat-error *ngIf="password.invalid">{{
+          getPasswordErrorMessage()
+        }}</mat-error>
+      </mat-form-field>
+      <a href="#">Forgot your password?</a>
+      <button class="btn btn-outline-dark" (click)="onloginClicked()">
+        Login
+      </button>
+    </form>
+  </div>
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-left">
+        <h1>Welcome.</h1>
+        <p>stay connect with us</p>
+        <button class="btn btn-outline-dark" id="signIn">Sign In</button>
+      </div>
+      <div class="overlay-panel overlay-right">
+        <h1>Hi there</h1>
+        <p>Enter your personal details</p>
+        <button class="btn btn-outline-dark" id="signUp">Sign Up</button>
+      </div>
+    </div>
+  </div>
+</div>
